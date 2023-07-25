@@ -1,4 +1,5 @@
-import React, {useState, useEffect, useMemo} from 'react'
+import React, {useState, useMemo} from 'react'
+import ToDoItem from './ToDoItem';
 
 
 function ToDoList() {
@@ -77,19 +78,12 @@ function ToDoList() {
         <div id="allTodos">
             <ul > 
                 {filteredTodos.map(todo=> (
-                    <div key={todo.id}>
-                        <input 
-                        type="checkbox"
-                        checked={todo.isComplete}
-                        onChange={()=>handleToggleComplete(todo.id)}
-                        />
-                        <li style={{display:"inline-block"}}>{todo.text}, {todo.isComplete }</li>
-                        <span 
-                        onClick={() => deleteTodo(todo.id)}
-                        style={{padding:"0px 5px", margin:"0px 10px"}}
-                        ><button style={{color:"red", fontWeight:"500", outline:'0px'}}>Delete</button></span>
-                        
-                    </div> 
+                  <ToDoItem 
+                  todo={todo}
+                  handleToggleComplete={()=>handleToggleComplete(todo.id)}
+                  deleteTodo={()=>deleteTodo(todo.id)}
+                  key={todo.id}
+                  />
                                       
                 ))}
             </ul>
