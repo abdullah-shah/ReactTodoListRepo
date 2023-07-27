@@ -2,12 +2,14 @@ import React, {useState, useMemo} from 'react'
 import TodoFilters from './TodoFilters';
 import AddTodo from './AddTodo';
 import ToDoItem from './ToDoItem';
+import useId from '../../hooks/useId';
 
 
 function ToDoList() {
     const [todos, setTodos] = useState([]);
     const [editTodoId, setEditTodoId] = useState([]);
     const [filter, setFilter] = useState('all');
+    const [id, generatedId] = useId()
     const [todoItem, setTodoItem] = useState({
       id: 0,
       text: '',
@@ -21,7 +23,7 @@ function ToDoList() {
   
     const handleSubmit = (event) => {
       event.preventDefault();
-      const id = todos.length + 1;
+      generatedId();
       const isComplete = false;
       setTodos([...todos, { ...todoItem, id, isComplete }]);
       setTodoItem({ text: '' });
