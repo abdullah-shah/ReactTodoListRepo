@@ -1,5 +1,5 @@
 import React, {useState, useMemo} from 'react'
-import TodoFilters from '../TodoFilters';
+import TodoFilters from './TodoFilters';
 import AddTodo from './AddTodo';
 import ToDoItem from './ToDoItem';
 
