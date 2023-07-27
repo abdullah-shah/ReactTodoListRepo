@@ -34,7 +34,7 @@ function ToDoItem({todo, handleToggleComplete, deleteTodo, handleEditTodoId, edi
                         <span
                         style={{marginLeft:10}} 
                         onClick={()=>editTodoIdOnBlur(todo.id)}>
-                            <button style={{color:"green", fontWeight:"500", outline:'0px'}}>Edit</button>
+                            <button style={{color:"orange", fontWeight:"500", outline:'0px'}}>Edit</button>
                         </span>
                         <span 
                         onClick={deleteTodo}>
