@@ -6,6 +6,7 @@ import ToDoItem from './ToDoItem';
 
 function ToDoList() {
     const [todos, setTodos] = useState([]);
+    const [editTodoId, setEditTodoId] = useState([]);
     const [filter, setFilter] = useState('all');
     const [todoItem, setTodoItem] = useState({
       id: 0,
@@ -40,6 +41,17 @@ function ToDoList() {
         )
       );
     };
+    const handleEditTodoId = (id) => {
+      setEditTodoId(id)
+    }
+    const handleTodoTextUpdate = (id, newText) =>{
+      setTodos((previousTodos)=>
+      previousTodos.map((todo)=>
+      todo.id === id? {...todo, text: newText}: todo
+      )
+      )
+
+    }
   
     const handleFilter = (filterCriteria) => {
       setFilter(filterCriteria);
@@ -74,6 +86,10 @@ function ToDoList() {
               handleToggleComplete={()=>handleToggleComplete(todo.id)}
               deleteTodo={()=>deleteTodo(todo.id)}
               key={todo.id}
+              handleEditTodoId={handleEditTodoId}
+              handleTodoTextUpdate = {(e)=>handleTodoTextUpdate(todo.id, e.target.value)}
+              editTodoId = {editTodoId}
+
               />                           
             ))}
         </ul>   
