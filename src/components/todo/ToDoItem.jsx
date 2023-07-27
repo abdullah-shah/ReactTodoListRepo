@@ -11,8 +11,9 @@ function ToDoItem({todo, handleToggleComplete, deleteTodo, handleEditTodoId, edi
         }   
     };
   return (
-                <div style={{marginTop:5}} >
-                        <input 
+                <div style={{marginTop:5, padding:'5px'}} >
+                        <input
+                        className='checkbox-round' 
                         type="checkbox"
                         checked={todo.isComplete}
                         onChange={handleToggleComplete}
@@ -30,7 +31,8 @@ function ToDoItem({todo, handleToggleComplete, deleteTodo, handleEditTodoId, edi
                                 >{todo.text}</li>
                             )
                         }   
-                        <span 
+                        <span
+                        style={{marginLeft:10}} 
                         onClick={()=>editTodoIdOnBlur(todo.id)}>
                             <button style={{color:"green", fontWeight:"500", outline:'0px'}}>Edit</button>
                         </span>
