@@ -24,7 +24,9 @@ function ToDoItem({todo, handleToggleComplete, deleteTodo, handleEditTodoId, edi
                                 value={todo.text} 
                                 onChange={handleTodoTextUpdate}
                                 onBlur={()=>editTodoIdOnBlur(null)}
-                                onKeyDown={handleKeyPress} />
+                                onKeyDown={handleKeyPress}
+                                autoFocus
+                                style={{outline:0, padding:'5px'}} />
                             ):
                             (<li 
                                 style={{display:"inline-block"}}
