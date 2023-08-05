@@ -1,6 +1,6 @@
 import React from 'react'
 
-function AddTodo({todoItem, handleChange, handleSubmit, isTodoTouched}) {
+const  AddTodo =({todoItem, handleChange, handleSubmit, isTodoTouched}) => {
   return (
     <>
     <h1 style={{textAlign:'center', background:"#f0f0f0"}}>Todo App</h1>

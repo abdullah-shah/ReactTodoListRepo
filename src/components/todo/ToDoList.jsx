@@ -5,7 +5,7 @@ import ToDoItem from './ToDoItem';
 import useId from '../../hooks/useId';
 
 
-function ToDoList() {
+const ToDoList =() => {
     const [todos, setTodos] = useState([]);
     const [editTodoId, setEditTodoId] = useState([]);
     const [filter, setFilter] = useState('all');

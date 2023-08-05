@@ -1,6 +1,8 @@
 import React from 'react'
+import EditableTodo  from './EditableTodo';
+import ReadonlyTodo from './ReadonlyTodo';
 
-function ToDoItem({todo, handleToggleComplete, deleteTodo, handleEditTodoId, editTodoId, handleTodoTextUpdate}) {
+const ToDoItem = ({todo, handleToggleComplete, deleteTodo, handleEditTodoId, editTodoId, handleTodoTextUpdate}) => {
     const editTodoIdOnBlur = (id) => {
         handleEditTodoId(id)
     };
@@ -19,18 +21,16 @@ function ToDoItem({todo, handleToggleComplete, deleteTodo, handleEditTodoId, edi
                         onChange={handleToggleComplete}
                         />
                         {todo.id === editTodoId?
-                            (<input 
-                                type="text" 
-                                value={todo.text} 
-                                onChange={handleTodoTextUpdate}
-                                onBlur={()=>editTodoIdOnBlur(null)}
-                                onKeyDown={handleKeyPress}
-                                autoFocus
-                                style={{outline:0, padding:'5px'}} />
+                            (
+                                <EditableTodo
+                                todoText = {todo.text}
+                                handleTodoTextUpdate={handleTodoTextUpdate}
+                                editTodoIdOnBlur={()=>editTodoIdOnBlur(null)}
+                                handleKeyPress= {handleKeyPress}
+                                />
                             ):
-                            (<li 
-                                style={{display:"inline-block"}}
-                                >{todo.text}</li>
+                            (
+                                <ReadonlyTodo todoText={todo.text}/>
                             )
                         }   
                         <span

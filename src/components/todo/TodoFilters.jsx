@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TodoFilters({todosLeft, handleFilter,clearComplete}) {
+const TodoFilters = ({todosLeft, handleFilter,clearComplete}) => {
     const filterTextToSend = (text) => {
         handleFilter(text);
 
